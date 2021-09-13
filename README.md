@@ -105,9 +105,7 @@ Please consult the [documentation](https://github.com/open-policy-agent/framewor
 You might also find inspiration in the official policy library with many examples:
 https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/general
 2. Apply both yamls (creates the K8s CRDs for OPA Gatekeeper):
-
 `kubectl apply -f template_Task2.yaml`
-
 `kubectl apply -f constraint_Task2.yaml`
 3. Try to deploy a Pod, e.g.:
 `kubectl create deployment nginx --image=nginx`
