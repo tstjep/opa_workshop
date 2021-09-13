@@ -9,12 +9,14 @@ The solutions are located at the end of this page.
 
 # Useful Links
 Rego Docs:
+
 https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego
+
 Excellent Rego Summary Slideshare:
 https://www.slideshare.net/TorinSandall/rego-deep-dive
+
 Intro to Kubernetes Admission Control:
 https://kubernetes.io/blog/2019/03/21/a-guide-to-kubernetes-admission-controllers/
-
 
 # Task 1 - Pure Rego Intro
 Input JSON:
@@ -134,6 +136,7 @@ https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/gene
     allow {
       lastname == "matter"
     }
+
 ## Task 2
 
     package kubernetes.admission
@@ -151,6 +154,8 @@ https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/gene
     }
 
 ## Task 3
-github links to template and policy
+https://github.com/tstjep/opa_workshop/blob/main/task2_constraint.yaml
+https://github.com/tstjep/opa_workshop/blob/main/task2_template.yaml
+
 ## Bonus Task
 https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy
