@@ -1,0 +1,34 @@
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: k8stask2
+  annotations:
+    description: allowedrepo and latest tag example
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sTask2 
+      validation:
+        # Schema for the `parameters` field
+        openAPIV3Schema:
+          type: object
+          properties:
+            repos:
+              type: array
+              items:
+                type: string
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package kubernetes.admission
+         violation[{"msg": msg, "details": {}}] {
+             image := input.review.object.spec.containers[_].image
+             not startswith(image, "swisscom.com")
+             msg := sprintf("image not from trusted registry: %v", [image])
+        }
+         violation[{"msg": msg, "details": {}}] {
+             image := input.review.object.spec.containers[_].image
+             endswith(image, ":latest")
+             msg := sprintf("image uses forbidden latest tag: %v", [image])
+        }
