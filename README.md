@@ -33,14 +33,14 @@ Useful Rego concepts:
  - Rule with string comparison
 
 2. Now extend your rego code to also check if the lastname starts with the letter "m" (AND)
-3. When that works change the rule check for firstname "mani" OR lastname "matter".
+3. When that works change the rule to check for firstname "mani" OR lastname "matter".
 
 Useful Rego concepts: 
 
  - AND vs OR in rules
 
 # Task 2 - Rego for K8s
-Use following JSON, with real Kubernetes AdmissonReview object, trying to start a Pod with two Containers:
+Use following real Kubernetes AdmissonReview JSON as Input, trying to start a Pod with two Containers:
 
     {
       "apiVersion": "admission.k8s.io/v1beta1",
@@ -70,7 +70,8 @@ Use following JSON, with real Kubernetes AdmissonReview object, trying to start 
         }
       }
     }
-Please
+
+Please create Rego code doing following: 
  - Only allow images from the "swisscom.com" Repository.
  - Also deny images with the latest tag
  
@@ -106,9 +107,9 @@ https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/gene
 2. Apply both yamls (creates the K8s CRDs for OPA Gatekeeper):
 `kubectl apply -f template_Task2.yaml`
 `kubectl apply -f constraint_Task2.yaml`
-3. Try to deploy something, e.g.:
+3. Try to deploy a Pod, e.g.:
 `kubectl create deployment nginx --image=nginx`
-4. What happens? Should the Pod get started? Inspect its ReplicaSet
+4. What happens? Should the Pod get started? Inspect its ReplicaSet.
 5. Change your policy to only warn and not reject (no change of the Rego code necessary)
 6. How would you exclude a certain namespace from that policy?
 7. How would you exclude a namespace from Gatekeeper globally?
