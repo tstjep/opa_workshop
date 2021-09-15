@@ -32,8 +32,7 @@ Useful Rego concepts:
  - JSON traversing
  - Rule with string comparison
 
-2. Now extend your rego code to also check if the lastname starts with the letter "m" (AND)
-3. When that works change the rule to check for firstname "mani" OR lastname "matter".
+ 2. When that works change the rule to check for firstname "mani" OR lastname "matter".
 
 Useful Rego concepts: 
 
